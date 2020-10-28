@@ -15,11 +15,10 @@ public class Member {
 		super();
 	}
 
-	public Member(String email, String password, String name, LocalDateTime registerDateTime) {
+	public Member(String email, String password, String name) {
 		this.email = email;
 		this.password = password;
 		this.name = name;
-		this.registerDateTime = registerDateTime;
 	}
 
 	public Member(Long id) {

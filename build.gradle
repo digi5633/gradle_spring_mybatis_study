@@ -44,6 +44,9 @@ dependencies {
 	compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.5'
 	// https://mvnrepository.com/artifact/org.mybatis/mybatis
 	compile group: 'org.mybatis', name: 'mybatis', version: '3.5.5'
+	// https://mvnrepository.com/artifact/org.mybatis/mybatis-typehandlers-jsr310
+	compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+	
 	
 	// Log
 	// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic

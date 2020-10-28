@@ -7,13 +7,14 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-// @MapperScan(basePackages = { "gradle_spring5_chap11.mapper" })
+@MapperScan(basePackages = { "gradle_spring_mybatis_study.mapper" })
 public class ContextSqlSession {
 
 	@Autowired
@@ -24,7 +25,7 @@ public class ContextSqlSession {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(dataSource);
 		factoryBean.setConfigLocation(applicationContext.getResource("classpath:/mybatis-config.xml"));
-		// factoryBean.setMapperLocations(applicationContext.getResources("classpath:mappers/*Mapper.xml"));
+		factoryBean.setMapperLocations(applicationContext.getResources("classpath:mappers/*Mapper.xml"));
 		return factoryBean;
 	}
 
