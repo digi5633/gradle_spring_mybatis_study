@@ -29,7 +29,8 @@
 	
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER(EMAIL, PASSWORD, NAME, REGDATE)
-		VALUES (#{email}, #{password}, #{name}, SYSDATE)
+		<!-- VALUES (#{email}, #{password}, #{name}, SYSDATE) -->
+		VALUES (#{email}, #{password}, #{name}, #{registerDateTime})
 	</insert>
 	
 	<update id="updateMember" parameterType="Member">

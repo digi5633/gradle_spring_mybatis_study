@@ -1,5 +1,6 @@
 package gradle_spring_mybatis_study.mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.logging.Log;
@@ -43,16 +44,18 @@ public class MemberMapperTest {
 	@Test
 	public void test02SelectMemberByEmail() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Member member = mapper.selectMemberByEmail("test@test.co.kr");
-		Assert.assertNotNull(member);
-		log.debug(member.toString());
+		Member selectEmail = mapper.selectMemberByEmail("test@test.co.kr");
+		Assert.assertNotNull(selectEmail);
+		log.debug(selectEmail.toString());
 	}
 
 	@Test
 	public void test03InsertMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Member member = new Member("test33@test.co.kr", "1234", "test33");
-		int res = mapper.insertMember(member);
+		Member inMember = new Member("test33@test.co.kr", "1234", "test33");
+		// Member inMember = new Member("test33@test.co.kr", "1234", "test33", LocalDateTime.now());
+		// Member inMember = new Member("dh@test.co.kr", "444", "test4",LocalDateTime.parse("2020-12-25 12:30:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+		int res = mapper.insertMember(inMember);
 		Assert.assertEquals(1, res);
 
 	}
@@ -60,16 +63,16 @@ public class MemberMapperTest {
 	@Test
 	public void test04UpdateMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Member member = new Member("test33@test.co.kr", "2222", "test44");
-		int res = mapper.updateMember(member);
+		Member upMember = new Member("test33@test.co.kr", "2222", "test44");
+		int res = mapper.updateMember(upMember);
 		Assert.assertEquals(1, res);
 	}
 
 	@Test
 	public void test05DeleteMember() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		int Member = mapper.deleteMember("test33@test.co.kr");
-		Assert.assertSame(1, Member);
+		int delMember = mapper.deleteMember("test33@test.co.kr");
+		Assert.assertSame(1, delMember);
 
 	}
 
